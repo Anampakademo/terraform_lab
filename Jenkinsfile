@@ -10,6 +10,15 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/vikash-kumar01/terraform_lab.git'
             }
         }
+        
+        node {
+
+    checkout(scm)       
+        stage ('Templates Deployment'){
+            sh "terraform init"
+        }
+}
+        
         stage('terraform init'){
             steps{
                 sh 'terraform init'
