@@ -11,7 +11,8 @@ pipeline{
             }
         }
         
-        node {
+        
+        {
 
     checkout(scm)       
         stage ('Templates Deployment'){
