@@ -12,15 +12,13 @@ pipeline{
         }
         
         
-        {
+      stage ("terraform init"){
 
-    checkout(scm)       
-        stage ('Templates Deployment'){
-            sh "terraform init"
+            steps{
+                sh 'terraform init'
+
+            }
         }
-}
-        
-      
          stage('terraform plan'){
             steps{
                 sh "terraform plan -var 'region=${params.region}'"
